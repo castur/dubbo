@@ -74,21 +74,25 @@ public class ProtocolConfig extends AbstractConfig {
     private String threadpool;
 
     /**
+     * 线程池类型
      * Thread pool core thread size
      */
     private Integer corethreads;
 
     /**
+     * 服务线程池大小
      * Thread pool size (fixed size)
      */
     private Integer threads;
 
     /**
+     * io线程池大小
      * IO thread pool size (fixed size)
      */
     private Integer iothreads;
 
     /**
+     * 
      * Thread pool's queue length
      */
     private Integer queues;
@@ -114,16 +118,19 @@ public class ProtocolConfig extends AbstractConfig {
     private String charset;
 
     /**
+     * 有效载荷最大长度
      * Payload max length
      */
     private Integer payload;
 
     /**
+     * 字节长度
      * Buffer size
      */
     private Integer buffer;
 
     /**
+     *
      * Heartbeat interval
      */
     private Integer heartbeat;
