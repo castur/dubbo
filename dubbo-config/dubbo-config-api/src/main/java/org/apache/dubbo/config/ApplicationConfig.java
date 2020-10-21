@@ -111,6 +111,7 @@ public class ApplicationConfig extends AbstractConfig {
 
     /**
      * Monitor center
+     * 服务分层对应的架构
      */
     private MonitorConfig monitor;
 
