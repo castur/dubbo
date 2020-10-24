@@ -99,53 +99,63 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     private static final long serialVersionUID = -1559314110797223229L;
 
     /**
+     * 服务接口的本地实现
      * Local impl class name for the service interface
      */
     protected String local;
 
     /**
+     * 服务接口的本地存根类名
      * Local stub class name for the service interface
      */
     protected String stub;
 
     /**
+     * 监控配置
      * Service monitor
      */
     protected MonitorConfig monitor;
 
     /**
+     * 生成动态代理的策略，有两种策略可供选择:jdk和javassist
      * Strategies for generating dynamic agents，there are two strategies can be choosed: jdk and javassist
      */
     protected String proxy;
 
     /**
+     * 集群方式，可选：failover/failfast/failsafe/failback/forking
      * Cluster type
      */
     protected String cluster;
 
     /**
+     * 当提供者端公开服务或客户端引用使用的远程服务时，如果有多个远程服务，可以使用逗号分隔它们
      * The {@link Filter} when the provider side exposed a service or the customer side references a remote service used,
      * if there are more than one, you can use commas to separate them
      */
     protected String filter;
 
     /**
+     * 当提供者端公开服务或客户端引用使用的远程服务(如果有多个)时，侦听器可以使用逗号分隔它们
      * The Listener when the provider side exposes a service or the customer side references a remote service used
      * if there are more than one, you can use commas to separate them
      */
     protected String listener;
 
     /**
+     * 服务负责人，用于服务治理，请填写负责人公司邮箱前缀
      * The owner of the service providers
      */
     protected String owner;
 
     /**
+     * 对每个提供者的最大连接数，rmi、http、hessian等短连接协议表示限制连接数，dubbo等长连接协表示建立的长连接个数
      * Connection limits, 0 means shared connection, otherwise it defines the connections delegated to the current service
      */
     protected Integer connections;
 
     /**
+     * 服务提供者所在的分层。如：biz、dao、intl:web、china:acton。
      * The layer of service providers
      */
     protected String layer;
@@ -544,6 +554,9 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
         }
     }
 
+    /**
+     * 转换注册ID到注册地址
+     */
     private void convertRegistryIdsToRegistries() {
         if (StringUtils.isEmpty(registryIds) && CollectionUtils.isEmpty(registries)) {
             Set<String> configedRegistries = new HashSet<>();

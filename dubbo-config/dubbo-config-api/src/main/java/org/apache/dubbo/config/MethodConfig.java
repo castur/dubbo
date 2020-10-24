@@ -57,16 +57,18 @@ public class MethodConfig extends AbstractMethodConfig {
     private Boolean retry;
 
     /**
-     * If it's reliable
+     * If it's reliable 是否可靠
      */
     private Boolean reliable;
 
     /**
+     * 方法调用的线程限制
      * Thread limits for method invocations
      */
     private Integer executes;
 
     /**
+     * 是否弃用
      * If it's deprecated
      */
     private Boolean deprecated;
@@ -82,21 +84,25 @@ public class MethodConfig extends AbstractMethodConfig {
     private Boolean isReturn;
 
     /**
+     * 调用异步调用时的回调实例
      * Callback instance when async-call is invoked
      */
     private Object oninvoke;
 
     /**
+     * 调用异步调用时的回调方法
      * Callback method when async-call is invoked
      */
     private String oninvokeMethod;
 
     /**
+     * 返回异步调用时的回调实例
      * Callback instance when async-call is returned
      */
     private Object onreturn;
 
     /**
+     * 返回异步调用时的回调方法
      * Callback method when async-call is returned
      */
     private String onreturnMethod;
@@ -155,6 +161,11 @@ public class MethodConfig extends AbstractMethodConfig {
         }
     }
 
+    /**
+     * 构造方法配置
+     * @param methods
+     * @return
+     */
     public static List<MethodConfig> constructMethodConfig(Method[] methods) {
         if (methods != null && methods.length != 0) {
             List<MethodConfig> methodConfigs = new ArrayList<MethodConfig>(methods.length);

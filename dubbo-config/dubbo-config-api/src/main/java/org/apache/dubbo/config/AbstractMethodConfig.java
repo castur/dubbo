@@ -38,32 +38,40 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 远程调用超时时间
      * The timeout for remote invocation in milliseconds
      */
     protected Integer timeout;
 
     /**
+     * 重试次数
      * The retry times
      */
     protected Integer retries;
 
     /**
+     * 最大并发调用
+     * 每服务消费者最大并发调用限制
      * max concurrent invocations
      */
     protected Integer actives;
 
     /**
+     * 负载均衡策略 可选值：random,roundrobin,leastactive，分别表示：随机，轮询，最少活跃调用
      * The load balance
      */
     protected String loadbalance;
 
     /**
+     * 是否异步执行，不可靠异步，只是忽略返回值，不阻塞执行线程
+     *
      * Whether to async
-     * note that: it is an unreliable asynchronism that ignores return values and does not block threads.
+     * note that: it is an unreliable asynchronism that ignores return values and does not block threads. 这是一种不可靠的异步，会忽略返回结果 以及不会阻塞线程
      */
     protected Boolean async;
 
     /**
+     * 异步调用时，标记sent=true时，表示网络已发出数据
      * Whether to ack async-sent
      */
     protected Boolean sent;
