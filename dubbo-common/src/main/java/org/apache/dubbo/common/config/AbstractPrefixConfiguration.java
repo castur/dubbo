@@ -19,6 +19,7 @@ package org.apache.dubbo.common.config;
 import org.apache.dubbo.common.utils.StringUtils;
 
 /**
+ * 这是一个为Dubbo检索属性的序列定制的抽象
  * This is an abstraction specially customized for the sequence Dubbo retrieves properties.
  */
 public abstract class AbstractPrefixConfiguration implements Configuration {

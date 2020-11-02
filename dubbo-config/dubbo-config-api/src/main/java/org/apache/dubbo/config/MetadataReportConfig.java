@@ -25,6 +25,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DUBBO;
 import static org.apache.dubbo.common.constants.CommonConstants.PROPERTIES_CHAR_SEPERATOR;
 
 /**
+ * 元数据报告配置
  * MetadataReportConfig
  *
  * @export

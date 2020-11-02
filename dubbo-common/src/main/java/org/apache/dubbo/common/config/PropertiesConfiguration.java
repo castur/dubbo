@@ -21,6 +21,7 @@ import org.apache.dubbo.common.logger.LoggerFactory;
 import org.apache.dubbo.common.utils.ConfigUtils;
 
 /**
+ * 系统配置以及dubbo.properties参数
  * Configuration from system properties and dubbo.properties
  */
 public class PropertiesConfiguration extends AbstractPrefixConfiguration {

@@ -90,6 +90,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.TAG_KEY;
 
 /**
+ * 抽象默认配置
  * AbstractDefaultConfig
  *
  * @export
@@ -171,6 +172,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     protected ModuleConfig module;
 
     /**
+     * 注册中心
      * Registry centers
      */
     protected List<RegistryConfig> registries;
@@ -201,6 +203,8 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     protected String tag;
 
     /**
+     * 检查注册配置是否存在，然后组装成RegistryConfig
+     *
      * Check whether the registry config is exists, and then conversion it to {@link RegistryConfig}
      */
     protected void checkRegistry() {
@@ -604,6 +608,9 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
 
     }
 
+    /**
+     * 从反向配置加载注册表
+     */
     private void loadRegistriesFromBackwardConfig() {
         // for backward compatibility
         // -Ddubbo.registry.address is now deprecated.

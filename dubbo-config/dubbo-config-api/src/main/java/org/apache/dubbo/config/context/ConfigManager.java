@@ -41,6 +41,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_KEY;
  * TODO
  * Experimental API, should only being used internally at present.
  * <p>
+ * 也许我们可以考虑在下面的版本中通过提供一个连贯的样式构建器来开放给最终用户。
  * Maybe we can consider open to end user in the following version by providing a fluent style builder.
  *
  * <pre>{@code
@@ -66,23 +67,49 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_KEY;
  * </pre>
  * </p>
  * TODO
+ * 这里定义的属性与ReferenceConfig/ServiceConfig中的属性相同，
  * The properties defined here are duplicate with that in ReferenceConfig/ServiceConfig,
+ * 这里的属性目前仅用于重复检查，但还没有在导出/引用过程中使用。
  * the properties here are currently only used for duplication check but are still not being used in the export/refer process yet.
+ *
  * Maybe we can remove the property definition in ReferenceConfig/ServiceConfig and only keep the setXxxConfig() as an entrance.
+ * 所有内部工作流都可以依赖于ConfigManager。
  * All workflow internally can rely on ConfigManager.
  */
 public class ConfigManager {
     private static final Logger logger = LoggerFactory.getLogger(ConfigManager.class);
     private static final ConfigManager CONFIG_MANAGER = new ConfigManager();
-
+    /**
+     * 应用配置
+     */
     private ApplicationConfig application;
+    /**
+     * 监控配置
+     */
     private MonitorConfig monitor;
+    /**
+     * 模型配置
+     */
     private ModuleConfig module;
+    /**
+     * 配置中心
+     */
     private ConfigCenterConfig configCenter;
-
+    /**
+     * 协议
+     */
     private Map<String, ProtocolConfig> protocols = new ConcurrentHashMap<>();
+    /**
+     * 注册中心
+     */
     private Map<String, RegistryConfig> registries = new ConcurrentHashMap<>();
+    /**
+     * 提供者
+     */
     private Map<String, ProviderConfig> providers = new ConcurrentHashMap<>();
+    /**
+     * 消费者
+     */
     private Map<String, ConsumerConfig> consumers = new ConcurrentHashMap<>();
 
     public static ConfigManager getInstance() {

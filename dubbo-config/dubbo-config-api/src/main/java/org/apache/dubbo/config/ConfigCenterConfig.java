@@ -40,43 +40,76 @@ import static org.apache.dubbo.configcenter.Constants.CONFIG_GROUP_KEY;
 import static org.apache.dubbo.configcenter.Constants.CONFIG_NAMESPACE_KEY;
 
 /**
+ * 配置中心
  * ConfigCenterConfig
  */
 public class ConfigCenterConfig extends AbstractConfig {
     private AtomicBoolean inited = new AtomicBoolean(false);
-
+    /**
+     * 使用哪个配置中心：apollo、zookeeper、nacos等
+     * 以zookeeper为例
+     1. 指定protocol，则address可以简化为127.0.0.1:2181；
+     2. 不指定protocol，则address取值为zookeeper://127.0.0.1:2181
+     */
     private String protocol;
     private String address;
 
     /* The config center cluster, it's real meaning may very on different Config Center products. */
+    /**
+     * 含义视所选定的配置中心而不同。
+     如Apollo中用来区分不同的配置集群
+     */
     private String cluster;
 
     /* The namespace of the config center, generally it's used for multi-tenant,
     but it's real meaning depends on the actual Config Center you use.
     */
-
+    /**
+     * 通常用于多租户隔离，实际含义视具体配置中心而不同。
+     * zookeeper - 环境隔离，默认值dubbo；
+     apollo - 区分不同领域的配置集合，默认使用dubbo和application
+     */
     private String namespace = CommonConstants.DUBBO;
     /* The group of the config center, generally it's used to identify an isolated space for a batch of config items,
     but it's real meaning depends on the actual Config Center you use.
     */
+    /**
+     * 含义视所选定的配置中心而不同。
+     nacos - 隔离不同配置集
+     zookeeper - 隔离不同配置集
+     */
     private String group = CommonConstants.DUBBO;
     private String username;
     private String password;
     private Long timeout = 3000L;
 
     // If the Config Center is given the highest priority, it will override all the other configurations
+    /**
+     * 来自配置中心的配置项具有最高优先级，即会覆盖本地配置项。
+     */
     private Boolean highestPriority = true;
 
     // Decide the behaviour when initial connection try fails, 'true' means interrupt the whole process once fail.
+    /**
+     * 当配置中心连接失败时，是否终止应用启动。
+     */
     private Boolean check = true;
 
     /* Used to specify the key that your properties file mapping to, most of the time you do not need to change this parameter.
     Notice that for Apollo, this parameter is meaningless, set the 'namespace' is enough.
     */
+    /**
+     * 全局级配置文件所映射到的key
+     zookeeper - 默认路径/dubbo/config/dubbo/dubbo.properties
+     apollo - dubbo namespace中的dubbo.properties键
+     */
     private String configFile = CommonConstants.DEFAULT_DUBBO_PROPERTIES;
 
     /* the .properties file under 'configFile' is global shared while .properties under this one is limited only to this application
     */
+    /**
+     *
+     */
     private String appConfigFile;
 
     /* If the Config Center product you use have some special parameters that is not covered by this class, you can add it to here.

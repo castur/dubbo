@@ -25,13 +25,18 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 环境
  * TODO load as SPI will be better?
  */
 public class Environment {
     private static final Environment INSTANCE = new Environment();
 
     private Map<String, PropertiesConfiguration> propertiesConfigs = new ConcurrentHashMap<>();
+    /**
+     * 系统配置
+     */
     private Map<String, SystemConfiguration> systemConfigs = new ConcurrentHashMap<>();
+
     private Map<String, EnvironmentConfiguration> environmentConfigs = new ConcurrentHashMap<>();
     private Map<String, InmemoryConfiguration> externalConfigs = new ConcurrentHashMap<>();
     private Map<String, InmemoryConfiguration> appExternalConfigs = new ConcurrentHashMap<>();
