@@ -90,7 +90,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.TAG_KEY;
 
 /**
- * 抽象默认配置
+ * 抽象接口配置类
  * AbstractDefaultConfig
  *
  * @export

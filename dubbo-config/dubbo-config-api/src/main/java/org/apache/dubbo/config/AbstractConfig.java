@@ -48,7 +48,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.REMOVE_VALUE_PRE
 
 /**
  * Utility methods and public methods for parsing configuration
- *
+ * 解析配置的实用工具方法和公共方法
  * @export
  */
 public abstract class AbstractConfig implements Serializable {
@@ -67,6 +67,7 @@ public abstract class AbstractConfig implements Serializable {
     private static final int MAX_PATH_LENGTH = 200;
 
     /**
+     * 规则的资格
      * The rule qualification for <b>name</b>
      */
     private static final Pattern PATTERN_NAME = Pattern.compile("[\\-._0-9a-zA-Z]+");
@@ -97,6 +98,7 @@ public abstract class AbstractConfig implements Serializable {
     private static final Pattern PATTERN_KEY = Pattern.compile("[*,\\-._0-9a-zA-Z]+");
 
     /**
+     * 遗留属性容器
      * The legacy properties container
      */
     private static final Map<String, String> LEGACY_PROPERTIES = new HashMap<String, String>();
@@ -117,6 +119,7 @@ public abstract class AbstractConfig implements Serializable {
         LEGACY_PROPERTIES.put("dubbo.service.url", "dubbo.service.address");
 
         // this is only for compatibility
+        //优雅停机注册，此处先暂时不看，后续对整体了解后再来看此部分
         DubboShutdownHook.getDubboShutdownHook().register();
     }
 
@@ -124,6 +127,9 @@ public abstract class AbstractConfig implements Serializable {
      * The config id
      */
     protected String id;
+    /**
+     * 前缀
+     */
     protected String prefix;
 
     private static String convertLegacyValue(String key, String value) {
@@ -326,6 +332,7 @@ public abstract class AbstractConfig implements Serializable {
                 if (DEFAULT_KEY.equals(v)) {
                     continue;
                 }
+                //扩展点加载机制
                 if (!ExtensionLoader.getExtensionLoader(type).hasExtension(v)) {
                     throw new IllegalStateException("No such extension " + v + " for " + property + "/" + type.getName());
                 }
