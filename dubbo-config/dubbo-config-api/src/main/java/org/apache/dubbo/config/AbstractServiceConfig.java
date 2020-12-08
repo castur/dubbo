@@ -46,36 +46,44 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
     protected String version;
 
     /**
+     * 服务分组，当一个接口有多个实现，可以用分组区分
      * The service group
      */
     protected String group;
 
     /**
+     * 服务是否过期，如果设为true，消费方引用时将打印服务过时警告error日志
      * whether the service is deprecated
      */
     protected Boolean deprecated = false;
 
     /**
+     * 延迟注册服务时间(毫秒) ，设为-1时，表示延迟到Spring容器初始化完成时暴露服务
      * The time delay register service (milliseconds)
      */
     protected Integer delay;
 
     /**
+     *
      * Whether to export the service
      */
     protected Boolean export;
 
     /**
+     * 服务权重
      * The service weight
      */
     protected Integer weight;
 
     /**
+     * 服务文档URL
      * Document center
      */
     protected String document;
 
     /**
+     * 无论是否在注册中心注册为动态服务，值为true，状态为启用
+     * 服务注册后，需要手动禁用;如果要禁用该服务，还需要手动处理
      * Whether to register as a dynamic service or not on register center, the value is true, the status will be enabled
      * after the service registered,and it needs to be disabled manually; if you want to disable the service, you also need
      * manual processing
@@ -83,11 +91,13 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
     protected Boolean dynamic = true;
 
     /**
+     * 令牌验证，为空表示不开启，如果为true，表示随机生成动态令牌，否则使用静态令牌，令牌的作用是防止消费者绕过注册中心直接访问，保证注册中心的授权功能有效，如果使用点对点调用，需关闭令牌功能
      * Whether to use token
      */
     protected String token;
 
     /**
+     * 设为true，将向logger中输出访问日志，也可填写访问日志文件路径，直接把访问日志输出到指定文件
      * Whether to export access logs to logs
      */
     protected String accesslog;
@@ -102,6 +112,7 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
     private Integer executes;
 
     /**
+     * 该协议的服务是否注册到注册中心
      * Whether to register
      */
     private Boolean register = true;

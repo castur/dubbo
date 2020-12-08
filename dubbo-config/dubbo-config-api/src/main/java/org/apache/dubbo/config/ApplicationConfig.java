@@ -55,6 +55,7 @@ import static org.apache.dubbo.config.Constants.TEST_ENVIRONMENT;
 
 
 /**
+ * 应用信息配置
  * The application info
  *
  * @export
@@ -64,6 +65,7 @@ public class ApplicationConfig extends AbstractConfig {
     private static final long serialVersionUID = 5508512956753757169L;
 
     /**
+     * 当前应用名称，用于注册中心计算应用间依赖关系，注意消费者和提供者应用名不要一样，此参数不是匹配条件，你当前项目叫什么名字就填什么，和提供者消费者角色无关
      * Application name
      */
     private String name;
@@ -79,16 +81,19 @@ public class ApplicationConfig extends AbstractConfig {
     private String owner;
 
     /**
+     * 组织名称，用于注册中心区分服务来源
      * Application's organization (BU)
      */
     private String organization;
 
     /**
+     * 用于服务分层对应的架构，
      * Architecture layer
      */
     private String architecture;
 
     /**
+     * 应用环境
      * Environment, e.g. dev, test or production
      */
     private String environment;
@@ -121,6 +126,7 @@ public class ApplicationConfig extends AbstractConfig {
     private Boolean isDefault;
 
     /**
+     *
      * Directory for saving thread dump
      */
     private String dumpDirectory;

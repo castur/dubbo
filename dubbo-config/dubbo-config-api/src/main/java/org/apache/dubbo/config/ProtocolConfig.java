@@ -63,11 +63,13 @@ public class ProtocolConfig extends AbstractConfig {
     private String host;
 
     /**
+     * 端口
      * Service port
      */
     private Integer port;
 
     /**
+     *
      * Context path
      */
     private String contextpath;

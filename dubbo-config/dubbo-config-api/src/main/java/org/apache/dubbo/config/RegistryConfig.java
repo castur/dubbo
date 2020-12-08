@@ -32,6 +32,7 @@ import static org.apache.dubbo.config.Constants.ZOOKEEPER_PROTOCOL;
 import static org.apache.dubbo.registry.Constants.EXTRA_KEYS_KEY;
 
 /**
+ * 注册中心配置
  * RegistryConfig
  *
  * @export
@@ -42,16 +43,19 @@ public class RegistryConfig extends AbstractConfig {
     private static final long serialVersionUID = 5508512956753757169L;
 
     /**
+     * 注册中心服务器地址，如果地址没有端口缺省为9090，同一集群内的多个地址用逗号分隔
      * Register center address
      */
     private String address;
 
     /**
+     * 登陆注册中心用户名
      * Username to login register center
      */
     private String username;
 
     /**
+     *
      * Password to login register center
      */
     private String password;
@@ -67,6 +71,7 @@ public class RegistryConfig extends AbstractConfig {
     private String protocol;
 
     /**
+     * 网络传输方式，可选mina,netty
      * Network transmission type
      */
     private String transporter;
@@ -105,21 +110,25 @@ public class RegistryConfig extends AbstractConfig {
     private Integer wait;
 
     /**
+     * 注册中心不存在时，是否报错
      * Whether to check if register center is available when boot up
      */
     private Boolean check;
 
     /**
+     * 服务是否动态注册，如果设为false，注册后将显示为disable状态，需人工启用，并且服务提供者停止时，也不会自动取消注册，需人工禁用。
      * Whether to allow dynamic service to register on the register center
      */
     private Boolean dynamic;
 
     /**
+     * 是否向此注册中心注册服务，如果设为false，将只订阅，不注册
      * Whether to export service on the register center
      */
     private Boolean register;
 
     /**
+     * 是否向此注册中心订阅服务，如果设为false，将只注册，不订阅
      * Whether allow to subscribe service on the register center
      */
     private Boolean subscribe;
@@ -130,11 +139,13 @@ public class RegistryConfig extends AbstractConfig {
     private Map<String, String> parameters;
 
     /**
+     *
      * Whether it's default
      */
     private Boolean isDefault;
 
     /**
+     * 注册到注册中心的URL是否采用精简模式的
      * Simple the registry. both useful for provider and consumer
      *
      * @since 2.7.0

@@ -33,6 +33,8 @@ import static org.apache.dubbo.config.Constants.ON_THROW_INSTANCE_KEY;
 import static org.apache.dubbo.config.Constants.ON_THROW_METHOD_KEY;
 
 /**
+ * 方法级配置
+ * 该标签为<dubbo:service> 或 <dubbo:reference> 的子标签，用于控制到方法级
  * The method configuration
  *
  * @export
@@ -42,6 +44,7 @@ public class MethodConfig extends AbstractMethodConfig {
     private static final long serialVersionUID = 884908855422675941L;
 
     /**
+     * 方法名
      * The method name
      */
     private String name;
@@ -52,6 +55,7 @@ public class MethodConfig extends AbstractMethodConfig {
     private Integer stat;
 
     /**
+     * 是否重试
      * Whether to retry
      */
     private Boolean retry;
