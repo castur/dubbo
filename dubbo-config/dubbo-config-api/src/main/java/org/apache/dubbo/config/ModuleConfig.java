@@ -28,6 +28,7 @@ import static org.apache.dubbo.config.Constants.ORGANIZATION;
 import static org.apache.dubbo.config.Constants.OWNER;
 
 /**
+ * 模块信息配置
  * The module info
  *
  * @export
@@ -37,6 +38,7 @@ public class ModuleConfig extends AbstractConfig {
     private static final long serialVersionUID = 5508512956753757169L;
 
     /**
+     * 用于注册中心计算模块间依赖关系
      * Module name
      */
     private String name;

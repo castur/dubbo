@@ -162,11 +162,13 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     protected String layer;
 
     /**
+     * 应用系统配置
      * The application info
      */
     protected ApplicationConfig application;
 
     /**
+     *
      * The module info
      */
     protected ModuleConfig module;

@@ -61,11 +61,13 @@ public class RegistryConfig extends AbstractConfig {
     private String password;
 
     /**
+     * 端口
      * Default port for register center
      */
     private Integer port;
 
     /**
+     * 注册中心地址协议
      * Protocol for register center
      */
     private String protocol;
@@ -83,6 +85,7 @@ public class RegistryConfig extends AbstractConfig {
     private String cluster;
 
     /**
+     *
      * The group the services registry in
      */
     private String group;
